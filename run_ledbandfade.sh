@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 
 # Define the array of commands
 commands=(
@@ -24,5 +24,5 @@ while true; do
   $command
 
   # Wait for 2 seconds
-  sleep 2
+  sleep 1
 done
