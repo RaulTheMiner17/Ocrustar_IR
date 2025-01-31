@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexadecimal Number Encoder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        button {
+            margin-right: 10px;
+            margin-top: 10px;
+            padding: 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+        /* Assigning different colors to each button */
+        .button1 { background-color: #ffffff; color: rgb(0, 0, 0); }
+        .button2 { background-color: #ffffff; color: rgb(0, 0, 0); }
+        .button3 { background-color: #ffffff; color: rgb(0, 0, 0); }
+        .button4 { background-color: #ffffff; color: rgb(0, 0, 0); }
+        .button5 { background-color: #ffffff; color: rgb(0, 0, 0); }
+        .button6 { background-color: #ff0000; color: white; }
+        .button7 { background-color: #ff0000; color: white; }
+        .button8 { background-color: #ff0000; color: white; }
+        .button9 { background-color: #ff0000; color: white; }
+        .button10 { background-color: #ff0000; color: white; }
+        .button11 { background-color: #ff0000; color: white; }
+        .button12 { background-color: #ff0000; color: white; }
+        .button13 { background-color: #00ff11; color: white; }
+        .button14 { background-color: #00ff11; color: white; }
+        .button15 { background-color: #00ff11; color: white; }
+        .button16 { background-color: #00ff11; color: white; }
+        .button17 { background-color: #00ff11; color: white; }
+        .button18 { background-color: #00ff11; color: white; }
+        .button19 { background-color: #00ff11; color: white; }
+        .button20 { background-color: #b8fe68; color: white; }
+        .button21 { background-color: #b8fe68; color: white; }
+        .button22 { background-color: #b8fe68; color: white; }
+        .button23 { background-color: #b8fe68; color: white; }
+        .button24 { background-color: #b8fe68; color: white; }
+        .button25 { background-color: #b8fe68; color: white; }
+        .button26 { background-color: #b8fe68; color: white; }
+        .button27 { background-color: #dfff50; color: white; }
+        .button28 { background-color: #dfff50; color: white; }
+        .button29 { background-color: #dfff50; color: white; }
+        .button30 { background-color: #dfff50; color: white; }
+        .button31 { background-color: #dfff50; color: white; }
+        .button32 { background-color: #dfff50; color: white; }
+        .button33 { background-color: #dfff50; color: white; }
+        .button34 { background-color: #003cff; color: white; }
+        .button35 { background-color: #003cff; color: white; }
+        .button36 { background-color: #003cff; color: white; }
+        .button37 { background-color: #003cff; color: white; }
+        .button38 { background-color: #003cff; color: white; }
+        .button39 { background-color: #003cff; color: white; }
+        .button40 { background-color: #003cff; color: white; }
+        .button41 { background-color: #5bb0ff; color: white; }
+        .button42 { background-color: #5bb0ff; color: white; }
+        .button43 { background-color: #5bb0ff; color: white; }
+        .button44 { background-color: #5bb0ff; color: white; }
+        .button45 { background-color: #5bb0ff; color: white; }
+        .button46 { background-color: #5bb0ff; color: white; }
+        .button47 { background-color: #5bb0ff; color: white; }
+        .button48 { background-color: #ff00ff; color: white; }
+        .button49 { background-color: #ff00ff; color: white; }
+        .button50 { background-color: #ff00ff; color: white; }
+        .button51 { background-color: #ff00ff; color: white; }
+        .button52 { background-color: #ff00ff; color: white; }
+        .button53 { background-color: #ff00ff; color: white; }
+        .button54 { background-color: #ff00ff; color: white; }
+        .button55 { background-color: #ffff00; color: white; }
+        .button56 { background-color: #ffff00; color: white; }
+        .button57 { background-color: #ffff00; color: white; }
+        .button58 { background-color: #ffff00; color: white; }
+        .button59 { background-color: #ffff00; color: white; }
+        .button60 { background-color: #ffff00; color: white; }
+        .button61 { background-color: #ffff00; color: white; }
+        .button62 { background-color: #ffb0cb; color: white; }
+        .button63 { background-color: #ffb0cb; color: white; }
+        .button64 { background-color: #ffb0cb; color: white; }
+        .button65 { background-color: #ffb0cb; color: white; }
+        .button66 { background-color: #ffb0cb; color: white; }
+        .button67 { background-color: #ffb0cb; color: white; }
+        .button68 { background-color: #ffb0cb; color: white; }
+        .button69 { background-color: #ffa500; color: white; }
+        .button70 { background-color: #ffa500; color: white; }
+        .button71 { background-color: #ffa500; color: white; }
+        .button72 { background-color: #ffa500; color: white; }
+        .button73 { background-color: #ffa500; color: white; }
+        .button74 { background-color: #ffa500; color: white; }
+        .button75 { background-color: #ffa500; color: white; }
+        .button76 { background-color: #40e0d0; color: white; }
+        .button77 { background-color: #40e0d0; color: white; }
+        .button78 { background-color: #40e0d0; color: white; }
+        .button79 { background-color: #40e0d0; color: white; }
+        .button80 { background-color: #40e0d0; color: white; }
+        .button81 { background-color: #40e0d0; color: white; }
+        .button82 { background-color: #40e0d0; color: white; }
+
+
+        /* Responsive styles for mobile */
+        @media (max-width: 768px) {
+            button {
+                padding: 20px;
+                font-size: 18px;
+                width: 100%; /* Make buttons full width on mobile */
+            }
+            .button-container {
+                grid-template-columns: repeat(2, 1fr); /* 2 buttons per row on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Hexadecimal Number Encoder</h1>
+    <p>Enter space-separated numbers below to encode them into a hexadecimal string:</p>
+    <textarea id="inputNumbers" placeholder="Enter numbers here..."></textarea>
+    <button id="encodeButton">Encode</button>
+    <button id="copyButton">Copy Encoded Text</button>
+    <div class="result" id="result">Encoded result will appear here.</div>
+
+    <div class="button-container">
+        <!-- 20 buttons with different colors -->
+        <button class="copyStringButton button1" data-string="./elksmart-comm 47be169320371e381e631eba1eff9a1e372035218c4bb92061208e4b6120b920612061208c4cb7208e20352037206120b920ffffffffffffffffffffffffffde272c55af55b0285928af2a592859288455ae2a572a84282c2a2c2859282e285928b028ff93272c55b053b0285928b028592859288455ae2a572a84282c2a2c2859282e285928b028ff93272d55b053b0285928b028592859288455ae2a572a84282c2a2c2859282e285928b028ff93272d55b053b0285928b028592859288455ae2a572a84282c2a2c2859282e285928b028ff93272d55b055af285928b028592859288455ae2a572a84282c2a2c2859282e285928b028ff93272e53b053b0285928b028592859288455ae2a572a84282c2a2c28592a2d285928b028ff93272e53b053b0285928b028592859288553b028592885272e282e275b282e275a27b227ff94252e53b252b2275b27b0285b275b278553b028592885272e282e275b282e275b27b227ff94252e53b253b0275b27b0285b275b278553b028592885272e282e275b282e275a27b227ff94252e53b251b2275b27b0285b275b278553b028592885272e282e275b282e275b27b227ff94252e53b253b0275b27b2275b275b278553b028592886262e282e275b2730275b27b226ff945087513051b22687255c25302630265b268751b2258726b22531255c2531235e23b525ff964e87503350b32587255c25312531255c238950b3258923b42531255c2531235e23b523ff994e894e334eb5238a235c25322333235e238950b4258a22b5233322602333226022b722ff984c8a4c354eb7208b2360213520362061208c4cb7208e20b920381c651c381c7006">Random 60s</button>
+        <button class="copyStringButton button2" data-string="./elksmart-comm 097a19901c381eba1e381c631e3720631eb920ff9a1e614c35206120b9206120b7216120b721602160218a213620b5233321602136206120b920ff9b1e604e33216120b7216120b9206021b722602160218c203620b7213520612037206120b920ff9d1c614b381e631eb920631eba1e6120b920612061208c203620b7213520631e381e6120b920ff9b1e614c35206120b7216120b9206120b721602160218c203620b7213520612036206120b920ff9b1e614c35206120b7216021b7226021b7225e2360228a223522b5233322602333226022b523ff9922604e33226022b7226022b5235e23b5235e235e2389233323b52331255c2532235e23b523ff9721334eb54eb5235e23b5235e235e238950b4255c258923332333235e2332235e23b722ff9920334eb74db7225e23b5235e2360228a4eb5235e238a22332333235e2333226022b722ff9920354cb74cb8206120b920612061208c4cb72063208e1e37203819661e3a1c660c">Red Blue 60s</button>
+        <button class="copyStringButton button3" data-string="./elksmart-comm 1bb5233350b2275b275a2785535928845559288553b02785282e2730275b27b227ff9351b0273051b2275b275b2785535b2685535a278553b02687272e2631255c25b425ff9550b3253051b3235e255c2389505e2389505e238950b3258725312531235e23b523ff974eb323334eb5235e235e2389505e2389505c258950b4258923312532235e23b523ff984eb522334eb7226022602289505f228a4e5f228a4eb5228a23352133226022b722ff994bb820354cb820612061208c4c61208c4c61208c4cb91e8e20371e381e631eba1eff9d47bc0f4c16e70f75116f06a60fff4d11a50ca806">White Fast</button>
+        <button class="copyStringButton button4" data-string="./elksmart-comm 206022b525ff94253052852885272e282e275b282e532e272e285b272e2885272e282e285928b0275b27b2275b27b227ff94252e53852885272e282e265c253151302530265c2530278723312531255c25b4255c25b5225e23b722ff9920364b8c218c2037203720631c3a060c0d0c1b3d11">Random Colours</button>
+        <button class="copyStringButton button5" data-string="./elksmart-comm 116320354c5e233322354eb4235e23b523ff984e31233151b425302531255c253150312389255e2389505c2532505e233322354eb5226022b721ff9b4b3520364bb9203720371e6120384b361e8c2160218e49612038496320381c3a47be06">Random Colours Fade</button>
+
+        <button class="copyStringButton button6" data-string="./elksmart-comm 57572b2b2b572baf2b83572b2b2b2b5757af57af2b">Red</button>
+        <button class="copyStringButton button7" data-string="./elksmart-comm 57572b2b2b572baf2b83572b2b2b2b5757af57af2b832b2b572b2b832baf57af2b">Red Fade 1</button>
+        <button class="copyStringButton button8" data-string="./elksmart-comm 57572b2b2b572baf2b83572b2b2b2b5757af57af2b572b57572b2b2b2b2b2baf57af2b">Red Fade 2</button>
+        <button class="copyStringButton button9" data-string="./elksmart-comm 57572b2b2b572baf2b83572b2b2b2b5757af57af2b832b2b572b2b2b2b2b2baf57af2b">Red Fade 3</button>
+        <button class="copyStringButton button10" data-string="./elksmart-comm 57572b2b2b572baf2b83572b2b2b2b5757af57af2baf57572b832b2b2b5757af2b">Red Fade 4</button>
+
+        <button class="copyStringButton button11" data-string="./elksmart-comm 57572b2b2b572baf2b83572b2b2b2b5757af57af2b832b2b572b2b5757af57af2b">Red Fade 5</button>
+        <button class="copyStringButton button12" data-string="./elksmart-comm 57572b2b2b572baf2b83572b2b2b2b5757af57af2b572b57572b2b5757af57af2b">Red Fade 6</button>
+        <button class="copyStringButton button13" data-string="./elksmart-comm 57572b2b2b2b57af2b572b572b572b5757af57af2b">Green</button>
+        <button class="copyStringButton button14" data-string="./elksmart-comm 57572b2b2b2b57af2b572b572b572b5757af57af2b832b2b572b2b832baf57af2b">Green Fade 1</button>
+        <button class="copyStringButton button15" data-string="./elksmart-comm 57572b2b2b2b57af2b572b572b572b5757af57af2b572b57572b2b2b2b2b2baf57af2b">Green Fade 2</button>
+
+        <button class="copyStringButton button16" data-string="./elksmart-comm 57572b2b2b2b57af2b572b572b572b5757af57af2b832b2b572b2b2b2b2b2baf57af2b">Green Fade 3</button>
+        <button class="copyStringButton button17" data-string="./elksmart-comm 57572b2b2b2b57af2b572b572b572b5757af57af2baf57572b832b2b2b5757af2b">Green Fade 4</button>
+        <button class="copyStringButton button18" data-string="./elksmart-comm 57572b2b2b2b57af2b572b572b572b5757af57af2b832b2b572b2b5757af57af2b">Green Fade 5</button>
+        <button class="copyStringButton button19" data-string="./elksmart-comm 57572b2b2b2b57af2b572b572b572b5757af57af2b572b57572b2b5757af57af2b">Green Fade 6</button>
+        <button class="copyStringButton button20" data-string="./elksmart-comm 2b2b2b2b575757af2b572b572b572b2b2b572b832b572b572b">Light Green</button>
+        
+        <button class="copyStringButton button21" data-string="./elksmart-comm 2b2b2b2b575757af2b572b572b572b2b2b572b832b572b572b832b2b572b2b832baf57af2b">Light Green Fade 1</button>
+        <button class="copyStringButton button22" data-string="./elksmart-comm 2b2b2b2b575757af2b572b572b572b2b2b572b832b572b572b572b57572b2b2b2b2b2baf57af2b">Light Green Fade 2</button>
+        <button class="copyStringButton button23" data-string="./elksmart-comm 2b2b2b2b575757af2b572b572b572b2b2b572b832b572b572b832b2b572b2b2b2b2b2baf57af2b">Light Green Fade 3</button>
+        <button class="copyStringButton button24" data-string="./elksmart-comm 2b2b2b2b575757af2b572b572b572b2b2b572b832b572b572baf57572b832b2b2b5757af2b">Light Green Fade 4</button>
+        <button class="copyStringButton button25" data-string="./elksmart-comm 2b2b2b2b575757af2b572b572b572b2b2b572b832b572b572b832b2b572b2b5757af57af2b">Light Green Fade 5</button>
+
+        <button class="copyStringButton button26" data-string="./elksmart-comm 2b2b2b2b575757af2b572b572b572b2b2b572b832b572b572b572b57572b2b5757af57af2b">Light Green Fade 6</button>
+        <button class="copyStringButton button27" data-string="./elksmart-comm 2b2b2b2b575757af2b832b2b2b572b572b2b2b8357af2b">YellowGreen</button>
+        <button class="copyStringButton button28" data-string="./elksmart-comm 2b2b2b2b575757af2b832b2b2b572b572b2b2b8357af2b832b2b572b2b832baf57af2b">YellowGreen Fade 1</button>
+        <button class="copyStringButton button29" data-string="./elksmart-comm 2b2b2b2b575757af2b832b2b2b572b572b2b2b8357af2b572b57572b2b2b2b2b2baf57af2b">YellowGreen Fade 2</button>
+        <button class="copyStringButton button30" data-string="./elksmart-comm 2b2b2b2b575757af2b832b2b2b572b572b2b2b8357af2b832b2b572b2b2b2b2b2baf57af2b">YellowGreen Fade 3</button>
+
+        <button class="copyStringButton button31" data-string="./elksmart-comm 2b2b2b2b575757af2b832b2b2b572b572b2b2b8357af2baf57572b832b2b2b5757af2b">YellowGreen Fade 4</button>
+        <button class="copyStringButton button32" data-string="./elksmart-comm 2b2b2b2b575757af2b832b2b2b572b572b2b2b8357af2b832b2b572b2b5757af57af2b">YellowGreen Fade 5</button>
+        <button class="copyStringButton button33" data-string="./elksmart-comm 2b2b2b2b575757af2b832b2b2b572b572b2b2b8357af2b572b57572b2b5757af57af2b">YellowGreen Fade 6</button>
+        <button class="copyStringButton button34" data-string="./elksmart-comm 2b2b2b83572b2baf2b572b2b2b57572b2b572b2b2b2b2b2b2b832b">Blue</button>
+        <button class="copyStringButton button35" data-string="./elksmart-comm 2b2b2b83572b2baf2b572b2b2b57572b2b572b2b2b2b2b2b2b832b832b2b572b2b832baf57af2b">Blue Fade 1</button>
+
+        <button class="copyStringButton button36" data-string="./elksmart-comm 2b2b2b83572b2baf2b572b2b2b57572b2b572b2b2b2b2b2b2b832b572b57572b2b2b2b2b2baf57af2b">Blue Fade 2</button>
+        <button class="copyStringButton button37" data-string="./elksmart-comm 2b2b2b83572b2baf2b572b2b2b57572b2b572b2b2b2b2b2b2b832b832b2b572b2b2b2b2b2baf57af2b">Blue Fade 3</button>
+        <button class="copyStringButton button38" data-string="./elksmart-comm 2b2b2b83572b2baf2b572b2b2b57572b2b572b2b2b2b2b2b2b832baf57572b832b2b2b5757af2b">Blue Fade 4</button>
+        <button class="copyStringButton button39" data-string="./elksmart-comm 2b2b2b83572b2baf2b572b2b2b57572b2b572b2b2b2b2b2b2b832b832b2b572b2b5757af57af2b">Blue Fade 5</button>
+        <button class="copyStringButton button40" data-string="./elksmart-comm 2b2b2b83572b2baf2b572b2b2b57572b2b572b2b2b2b2b2b2b832b572b57572b2b5757af57af2b">Blue Fade 6</button>
+
+        <button class="copyStringButton button41" data-string="./elksmart-comm 2b2b2b83572b2baf2b572b2b2b572b2b2b2b2b2b2b2b57572b832b">Light Blue</button>
+        <button class="copyStringButton button42" data-string="./elksmart-comm 2b2b2b83572b2baf2b572b2b2b572b2b2b2b2b2b2b2b57572b832b832b2b572b2b832baf57af2b">Light Blue Fade 1</button>
+        <button class="copyStringButton button43" data-string="./elksmart-comm 2b2b2b83572b2baf2b572b2b2b572b2b2b2b2b2b2b2b57572b832b572b57572b2b2b2b2b2baf57af2b">Light Blue Fade 2</button>
+        <button class="copyStringButton button44" data-string="./elksmart-comm 2b2b2b83572b2baf2b572b2b2b572b2b2b2b2b2b2b2b57572b832b832b2b572b2b2b2b2b2baf57af2b">Light Blue Fade 3</button>
+        <button class="copyStringButton button45" data-string="./elksmart-comm 2b2b2b83572b2baf2b572b2b2b572b2b2b2b2b2b2b2b57572b832baf57572b832b2b2b5757af2b">Light Blue Fade 4</button>
+
+        <button class="copyStringButton button46" data-string="./elksmart-comm 2b2b2b83572b2baf2b572b2b2b572b2b2b2b2b2b2b2b57572b832b832b2b572b2b5757af57af2b">Light Blue Fade 5</button>
+        <button class="copyStringButton button47" data-string="./elksmart-comm 2b2b2b83572b2baf2b572b2b2b572b2b2b2b2b2b2b2b57572b832b572b57572b2b5757af57af2b">Light Blue Fade 6</button>
+        <button class="copyStringButton button48" data-string="./elksmart-comm 2b2b2b2b575757af2b8357832b2b2b2b57832b2b2b832b">Magenta</button>
+        <button class="copyStringButton button49" data-string="./elksmart-comm 2b2b2b2b575757af2b8357832b2b2b2b57832b2b2b832b832b2b572b2b832baf57af2b">Magenta Fade 1</button>
+        <button class="copyStringButton button50" data-string="./elksmart-comm 2b2b2b2b575757af2b8357832b2b2b2b57832b2b2b832b572b57572b2b2b2b2b2baf57af2b">Magenta Fade 2</button>
+
+        <button class="copyStringButton button51" data-string="./elksmart-comm 2b2b2b2b575757af2b8357832b2b2b2b57832b2b2b832b832b2b572b2b2b2b2b2baf57af2b">Magenta Fade 3</button>
+        <button class="copyStringButton button52" data-string="./elksmart-comm 2b2b2b2b575757af2b8357832b2b2b2b57832b2b2b832baf57572b832b2b2b5757af2b">Magenta Fade 4</button>
+        <button class="copyStringButton button53" data-string="./elksmart-comm 2b2b2b2b575757af2b8357832b2b2b2b57832b2b2b832b832b2b572b2b5757af57af2b">Magenta Fade 5</button>
+        <button class="copyStringButton button54" data-string="./elksmart-comm 2b2b2b2b575757af2b8357832b2b2b2b57832b2b2b832b572b57572b2b5757af57af2b">Magenta Fade 6</button>
+        <button class="copyStringButton button55" data-string="./elksmart-comm 57572b2b2b2b57af2b832b2b2b572b5757af57af2b">Yellow</button>
+
+        <button class="copyStringButton button56" data-string="./elksmart-comm 57572b2b2b2b57af2b832b2b2b572b5757af57af2b832b2b572b2b832baf57af2b">Yellow Fade 1</button>
+        <button class="copyStringButton button57" data-string="./elksmart-comm 57572b2b2b2b57af2b832b2b2b572b5757af57af2b572b57572b2b2b2b2b2baf57af2b">Yellow Fade 2</button>
+        <button class="copyStringButton button58" data-string="./elksmart-comm 57572b2b2b2b57af2b832b2b2b572b5757af57af2b832b2b572b2b2b2b2b2baf57af2b">Yellow Fade 3</button>
+        <button class="copyStringButton button59" data-string="./elksmart-comm 57572b2b2b2b57af2b832b2b2b572b5757af57af2baf57572b832b2b2b5757af2b">Yellow Fade 4</button>
+        <button class="copyStringButton button60" data-string="./elksmart-comm 57572b2b2b2b57af2b832b2b2b572b5757af57af2b832b2b572b2b5757af57af2b">Yellow Fade 5</button>
+
+        <button class="copyStringButton button61" data-string="./elksmart-comm 57572b2b2b2b57af2b832b2b2b572b5757af57af2b572b57572b2b5757af57af2b">Yellow Fade 6</button>
+        <button class="copyStringButton button62" data-string="./elksmart-comm 2b2b2b83572b2baf2b572b2b2baf57572b832b2b2b832b">Pink</button>
+        <button class="copyStringButton button63" data-string="./elksmart-comm 2b2b2b83572b2baf2b572b2b2baf57572b832b2b2b832b832b2b572b2b832baf57af2b">Pink Fade 1</button>
+        <button class="copyStringButton button64" data-string="./elksmart-comm 2b2b2b83572b2baf2b572b2b2baf57572b832b2b2b832b572b57572b2b2b2b2b2baf57af2b">Pink Fade 2</button>
+        <button class="copyStringButton button65" data-string="./elksmart-comm 2b2b2b83572b2baf2b572b2b2baf57572b832b2b2b832b832b2b572b2b2b2b2b2baf57af2b">Pink Fade 3</button>
+
+        <button class="copyStringButton button66" data-string="./elksmart-comm 2b2b2b83572b2baf2b572b2b2baf57572b832b2b2b832baf57572b832b2b2b5757af2b">Pink Fade 4</button>
+        <button class="copyStringButton button67" data-string="./elksmart-comm 2b2b2b83572b2baf2b572b2b2baf57572b832b2b2b832b832b2b572b2b5757af57af2b">Pink Fade 5</button>
+        <button class="copyStringButton button68" data-string="./elksmart-comm 2b2b2b83572b2baf2b572b2b2baf57572b832b2b2b832b572b57572b2b5757af57af2b">Pink Fade 6</button>
+        <button class="copyStringButton button69" data-string="./elksmart-comm 2b2b2b2b575757af2b832b2b2b572b2b2b572b8357af2b">Orange</button>
+        <button class="copyStringButton button70" data-string="./elksmart-comm 2b2b2b2b575757af2b832b2b2b572b2b2b572b8357af2b832b2b572b2b832baf57af2b">Orange Fade 1</button>
+
+        <button class="copyStringButton button71" data-string="./elksmart-comm 2b2b2b2b575757af2b832b2b2b572b2b2b572b8357af2b572b57572b2b2b2b2b2baf57af2b">Orange Fade 2</button>
+        <button class="copyStringButton button72" data-string="./elksmart-comm 2b2b2b2b575757af2b832b2b2b572b2b2b572b8357af2b832b2b572b2b2b2b2b2baf57af2b">Orange Fade 3</button>
+        <button class="copyStringButton button73" data-string="./elksmart-comm 2b2b2b2b575757af2b832b2b2b572b2b2b572b8357af2baf57572b832b2b2b5757af2b">Orange Fade 4</button>
+        <button class="copyStringButton button74" data-string="./elksmart-comm 2b2b2b2b575757af2b832b2b2b572b2b2b572b8357af2b832b2b572b2b5757af57af2b">Orange Fade 5</button>
+        <button class="copyStringButton button75" data-string="./elksmart-comm 2b2b2b2b575757af2b832b2b2b572b2b2b572b8357af2b572b57572b2b5757af57af2b">Orange Fade 6</button>
+
+        <button class="copyStringButton button76" data-string="./elksmart-comm 2b2b2b2b575757af2b572b2b57572b5757af2b2b2b832b">Turqouise</button>
+        <button class="copyStringButton button77" data-string="./elksmart-comm 2b2b2b2b575757af2b572b2b57572b5757af2b2b2b832b832b2b572b2b832baf57af2b">Turqouise Fade 1</button>
+        <button class="copyStringButton button78" data-string="./elksmart-comm 2b2b2b2b575757af2b572b2b57572b5757af2b2b2b832b572b57572b2b2b2b2b2baf57af2b">Turqouise Fade 2</button>
+        <button class="copyStringButton button79" data-string="./elksmart-comm 2b2b2b2b575757af2b572b2b57572b5757af2b2b2b832b832b2b572b2b2b2b2b2baf57af2b">Turqouise Fade 3</button>
+        <button class="copyStringButton button80" data-string="./elksmart-comm 2b2b2b2b575757af2b572b2b57572b5757af2b2b2b832baf57572b832b2b2b5757af2b">Turqouise Fade 4</button>
+
+        <button class="copyStringButton button81" data-string="./elksmart-comm 2b2b2b2b575757af2b572b2b57572b5757af2b2b2b832b832b2b572b2b5757af57af2b">Turqouise Fade 5</button>
+        <button class="copyStringButton button82" data-string="./elksmart-comm 2b2b2b2b575757af2b572b2b57572b5757af2b2b2b832b572b57572b2b5757af57af2b">Turqouise Fade 6</button>
+    </div>
+
+    <script>
+        function encodeNumber(n) {
+            if (n <= 254) {
+                return n.toString(16).padStart(2, '0');
+            }
+            const ffCount = Math.floor(n / 255);
+            const remainder = n % 255;
+            return 'ff'.repeat(ffCount) + remainder.toString(16).padStart(2, '0');
+        }
+
+        document.getElementById('encodeButton').addEventListener('click', () => {
+            const input = document.getElementById('inputNumbers').value.trim();
+            const numbers = input.split(/\s+/);
+            let encodedResult = '';
+
+            for (const numStr of numbers) {
+                const num = parseInt(numStr, 10);
+                if (!isNaN(num)) {
+                    encodedResult += encodeNumber(Math.floor(num / 16));
+                } else {
+                    encodedResult += `[Invalid input: ${numStr}] `;
+                }
+            }
+
+            document.getElementById('result').textContent = encodedResult;
+        });
+
+        document.getElementById('copyButton').addEventListener('click', () => {
+            const resultText = document.getElementById('result').textContent;
+            if (resultText) {
+                navigator.clipboard.writeText(resultText).then(() => {
+                    alert('Encoded text copied to clipboard!');
+                }).catch(err => {
+                    alert('Failed to copy text: ' + err);
+                });
+            } else {
+                alert('No encoded text to copy!');
+            }
+        });
+
+        // Add event listeners for the new buttons
+        const copyStringButtons = document.querySelectorAll('.copyStringButton');
+        copyStringButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const hiddenString = button.getAttribute('data-string');
+                navigator.clipboard.writeText(hiddenString).then(() => {
+                    alert(`Copied hidden string: ${hiddenString}`);
+                }).catch(err => {
+                    alert('Failed to copy text: ' + err);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
