@@ -1,0 +1,81 @@
+liberty
+=======
+
+'liberty' is a pseudolibrary largely consisting of reusable C code for my
+various projects.  I used to copy-paste large swaths of it with minimal changes,
+and it slowly became awfully painful to synchronize.  The project can be thought
+of as a successor to my other C library, libxtnd.
+
+You are supposed to import it as a git submodule and include the main source
+file directly everywhere you need it, setting feature flags as appropriate.
+Everything is declared "static".  I have come to the conclusion that this style
+of C programming suits me the best, as it allows me to nearly forget about the
+mess that are header files.
+
+The API is intentionally unstable, which allows for easy refactoring.
+
+All development is done on Linux, but other POSIX-compatible operating systems
+should be generally supported as well.  They have an extremely low priority,
+however, and I'm not testing them at all, perhaps with the exception of macOS.
+
+Tools
+-----
+This project also hosts a number of supporting scripts written in portable AWK:
+
+asciiman.awk::
+	A fallback manual page generator for AsciiDoc documents,
+	motivated by the hugeness of AsciiDoc's and Asciidoctor's dependency trees.
+	Just like them, it uses the _man_ macro package.
+
+cmake-parser.awk::
+	Parses the CMake language to the extent that is necessary to reliably
+	extract project versions.  Its greatest limitation is its inability
+	to expand variables, which would require a full interpreter.
+
+cmake-dump.awk::
+	This can be used in conjunction with the previous script to dump CMake
+	scripts in a normalized format for further processing.
+
+help2adoc.awk::
+	Produces AsciiDoc manual pages from --version/--help output.
+
+lxdrgen.awk::
+	Protocol code generator for a variant of XDR,
+	which is link:libertyxdr.adoc[documented separately].
+	Successfully employed in https://git.janouch.name/p/xK[xK].
+
+lxdrgen-c.awk::
+	LibertyXDR backend that builds on top of the C pseudolibrary.
+
+lxdrgen-cpp.awk::
+lxdrgen-cpp-posix.cpp::
+lxdrgen-cpp-qt.cpp::
+lxdrgen-cpp-win32.cpp::
+	LibertyXDR backend for C++, primarily targeting Win32 and its wide strings.
+	Link the result together with one of the accompanied source files.
+
+lxdrgen-go.awk::
+	LibertyXDR backend for Go, supporting _encoding/json_ interfaces.  It also
+	produces optimized JSON marshallers (however, note that the _json.Marshaler_
+	interface is bound to be underperforming, due to the amount of otherwise
+	avoidable memory allocations it necessitates).
+
+lxdrgen-mjs.awk::
+	LibertyXDR backend for Javascript, currently for decoding only.
+	It cuts a corner by not using BigInts, on par with `JSON.parse()`.
+
+lxdrgen-swift.awk::
+	LibertyXDR backend for the Swift programming language.
+
+Contributing and Support
+------------------------
+Use https://git.janouch.name/p/liberty to report any bugs, request features,
+or submit pull requests.  `git send-email` is tolerated.  If you want to discuss
+the project, feel free to join me at ircs://irc.janouch.name, channel #dev.
+
+Bitcoin donations are accepted at: 12r5uEWEgcHC46xd64tt3hHt9EUvYYDHe9
+
+License
+-------
+This software is released under the terms of the 0BSD license, the text of which
+is included within the package along with the list of authors.
