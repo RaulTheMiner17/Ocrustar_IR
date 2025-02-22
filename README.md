@@ -1,2 +1,3 @@
 For Linux, Mac or Termux only 
-copy coldplay commands/convert ir codes to hex:- https://raultheminer17.github.io/Ocrustar_IR/
+convert IR codes to hex/Copy coldplay commands:- https://raultheminer17.github.io/Ocrustar_IR/
+Usage:- ./elksmart.comm YOURHEXCODE
